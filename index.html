@@ -37,11 +37,13 @@
             } else if (distance < 20) {
                 return "Очень горячо";
             } else if (distance < 40) {
-                return "Горячо";
+                alert("Горячо" + ' осталось ' + 30 - clicks + ' попыток')
+
             } else if (distance < 80) {
                 return "Тепло";
             } else if (distance < 160) {
-                return "Холодно";
+                alert("Холодно" + ' осталось ' + 30 - clicks + ' попыток')
+
             } else if (distance < 320) {
                 return "Очень холодно";
             } else if (distance < 350) {
@@ -55,6 +57,9 @@
 
         $("#map").click(function (event) {
             clicks++;
+            if (clicks === 30) {
+                alert('Game over')
+            }
 
             let distance = getDistance(event, target);
 
